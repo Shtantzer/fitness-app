@@ -1,455 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitRevolution - Premium Workout Plans</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #434343 0%, #000000 100%);
-        }
-        .plan-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bruno Zgela Coaching</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f5f5;
+      color: #111827;
+    }
+
+    .hero-bg {
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0.75),
+          rgba(0,0,0,0.88)
+        ),
+        url('http://static.photos/fitness/1200x630/1');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 1px solid #ececec;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .plan-card {
+      border-radius: 22px;
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .popular-card {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,78,78,0.96),
+          rgba(216,21,21,0.96)
+        ),
+        url('http://static.photos/fitness/1200x630/2');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ececec;
+    }
+
+    .btn-primary {
+      background: #ef4444;
+      transition: .25s ease;
+    }
+
+    .btn-primary:hover {
+      background: #dc2626;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      transition: .25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .section-spacing {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    @media(max-width:640px) {
+      .section-spacing {
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <i data-feather="activity" class="text-red-500 h-8 w-8"></i>
-                        <span class="ml-2 text-xl font-bold text-gray-900">FitRevolution</span>
-                    </div>
-                </div>
-                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="#home" class="text-gray-900 hover:text-red-500 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="#plans" class="text-gray-900 hover:text-red-500 px-3 py-2 text-sm font-medium">Plans</a>
-                    <a href="#features" class="text-gray-900 hover:text-red-500 px-3 py-2 text-sm font-medium">Features</a>
-                    <a href="#testimonials" class="text-gray-900 hover:text-red-500 px-3 py-2 text-sm font-medium">Success Stories</a>
-                    <a href="#contact" class="text-gray-900 hover:text-red-500 px-3 py-2 text-sm font-medium">Contact</a>
-                </div>
-                <div class="flex items-center">
-                    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">
-                        Get Started
-                    </button>
-                </div>
-            </div>
-        </div>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero-bg text-white">
+
+    <!-- NAV -->
+    <nav class="max-w-7xl mx-auto px-5 py-5 flex items-center justify-between">
+
+      <div class="flex items-center gap-2">
+        <span class="font-extrabold tracking-wide text-sm sm:text-base">
+          BRUNO ZGELA COACHING
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+
+        <a href="https://www.instagram.com/bruno.zgela/" class="opacity-80 hover:opacity-100">
+          <i data-feather="instagram" class="w-5 h-5"></i>
+        </a>
+
+        <a href="https://www.youtube.com/@bruno_zgela" class="opacity-80 hover:opacity-100">
+          <i data-feather="youtube" class="w-5 h-5"></i>
+        </a>
+
+        <a href="mailto:someone@example.com" class="opacity-80 hover:opacity-100">
+          <i data-feather="mail" class="w-5 h-5"></i>
+        </a>
+
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Transform Your Body in Just 12 Weeks</h1>
-                    <p class="text-lg md:text-xl mb-8 text-gray-300">Our scientifically-proven workout plans are designed to help you build muscle, burn fat, and achieve your fitness goals faster than ever.</p>
-                    <div class="flex space-x-4">
-                        <button class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
-                            Choose Your Plan
-                        </button>
-                        <button class="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
-                            Learn More
-                        </button>
-                    </div>
-                </div>
-                <div data-aos="fade-left" class="hidden md:block">
-                    <img src="http://static.photos/fitness/1200x630/1" alt="Fitness Model" class="rounded-lg shadow-2xl">
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- HERO CONTENT -->
+    <div class="max-w-7xl mx-auto px-5 pb-24 pt-8">
 
-    <!-- Stats Section -->
-    <section class="bg-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-4xl font-bold text-red-500 mb-2">10K+</div>
-                    <div class="text-gray-600">Happy Clients</div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-4xl font-bold text-red-500 mb-2">12</div>
-                    <div class="text-gray-600">Weeks Program</div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-4xl font-bold text-red-500 mb-2">24/7</div>
-                    <div class="text-gray-600">Coach Support</div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-4xl font-bold text-red-500 mb-2">95%</div>
-                    <div class="text-gray-600">Success Rate</div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="max-w-2xl">
 
-    <!-- Features Section -->
-    <section id="features" class="bg-gray-50 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Our Workout Plans</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">We combine science with practical training to deliver results you can see and feel.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div data-aos="fade-up" class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-red-500 mb-4">
-                        <i data-feather="clipboard" class="h-10 w-10"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Personalized Plans</h3>
-                    <p class="text-gray-600">Customized workout routines based on your fitness level, goals, and available equipment.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100" class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-red-500 mb-4">
-                        <i data-feather="video" class="h-10 w-10"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Video Demonstrations</h3>
-                    <p class="text-gray-600">High-quality video tutorials for every exercise to ensure perfect form and technique.</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                    <div class="text-red-500 mb-4">
-                        <i data-feather="bar-chart-2" class="h-10 w-10"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Progress Tracking</h3>
-                    <p class="text-gray-600">Track your workouts, measurements, and progress with our easy-to-use dashboard.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+          Build your body through
+          <span class="text-red-500">calisthenics movement</span>
+        </h1>
 
-    <!-- Plans Section -->
-    <section id="plans" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Choose Your Perfect Plan</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Select the plan that matches your fitness goals and commitment level.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div data-aos="fade-up" class="plan-card bg-gray-50 border border-gray-200 rounded-xl p-8 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
-                    <div class="text-4xl font-bold mb-6">$29<span class="text-lg text-gray-500">/month</span></div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>Basic Workout Plan</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>Email Support</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>Weekly Progress Check</span>
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-md font-medium transition duration-300">
-                        Get Started
-                    </button>
-                </div>
-                
-                <div data-aos="fade-up" data-aos-delay="100" class="plan-card bg-red-500 text-white rounded-xl p-8 shadow-lg transform scale-105 transition duration-300 relative">
-                    <div class="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
-                        MOST POPULAR
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Pro</h3>
-                    <div class="text-4xl font-bold mb-6">$59<span class="text-lg text-red-200">/month</span></div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-white mr-2"></i>
-                            <span>Customized Workout Plan</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-white mr-2"></i>
-                            <span>24/7 Chat Support</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-white mr-2"></i>
-                            <span>Video Demonstrations</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-white mr-2"></i>
-                            <span>Nutrition Guide</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-white mr-2"></i>
-                            <span>Daily Progress Tracking</span>
-                        </li>
-                    </ul>
-                    <button class="w-full bg-white hover:bg-gray-100 text-red-500 py-3 rounded-md font-medium transition duration-300">
-                        Get Started
-                    </button>
-                </div>
-                
-                <div data-aos="fade-up" data-aos-delay="200" class="plan-card bg-gray-50 border border-gray-200 rounded-xl p-8 transition duration-300">
-                    <h3 class="text-2xl font-bold mb-4">Elite</h3>
-                    <div class="text-4xl font-bold mb-6">$99<span class="text-lg text-gray-500">/month</span></div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>Fully Personalized Plan</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>1-on-1 Coaching</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>Custom Meal Plan</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>Weekly Video Check-ins</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="check" class="text-green-500 mr-2"></i>
-                            <span>Priority Support</span>
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-md font-medium transition duration-300">
-                        Get Started
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+        <p class="mt-6 text-gray-300 leading-relaxed text-sm sm:text-base max-w-xl">
+          Over the course of my 15+ year journey, calisthenics has truly transformed my life.
+          Through years of training, learning and competing at a professional level,
+          I've gained valuable knowledge and experience that I now want to share with others.
+		  Although calistenics has a deep history dating back centuries, it experienced a major
+		  modern resurgence in the 1990s and 2000s, and many people still don't fully understand
+		  how powerful and life-changing it can be.
+        </p>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear from people who transformed their lives with our programs.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div data-aos="fade-up" class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <img src="http://static.photos/people/200x200/1" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold">Sarah J.</h4>
-                            <div class="flex text-yellow-400">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"I lost 25 pounds in 12 weeks following the FitRevolution program. The workouts were challenging but adaptable to my fitness level. The nutrition guide was a game-changer!"</p>
-                </div>
-                
-                <div data-aos="fade-up" data-aos-delay="100" class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <img src="http://static.photos/people/200x200/2" alt="Mike T." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold">Mike T.</h4>
-                            <div class="flex text-yellow-400">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"As a busy professional, I needed a program that worked with my schedule. The 30-minute workouts were perfect, and I gained more muscle in 3 months than I had in years."</p>
-                </div>
-                
-                <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-8 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <img src="http://static.photos/people/200x200/3" alt="Lisa K." class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-bold">Lisa K.</h4>
-                            <div class="flex text-yellow-400">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"The personal coaching made all the difference. My coach adjusted my plan as I progressed and kept me motivated. I've never felt stronger or more confident!"</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-red-500 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Body?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of satisfied customers who achieved their fitness goals with our proven programs.</p>
-            <button class="bg-white hover:bg-gray-100 text-red-500 px-8 py-4 rounded-md text-lg font-semibold transition duration-300 shadow-lg">
-                Start Your Journey Today
+          <a href="#plans"
+             class="btn-primary px-7 py-4 rounded-xl font-semibold text-center">
+            Check plans
+          </a>
+
+          <a href="#about"
+             class="btn-secondary px-7 py-4 rounded-xl font-semibold text-center">
+            About me
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section-spacing bg-[#f5f5f5]" id="features">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="text-center mb-14">
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold">
+          What do I offer?
+        </h2>
+
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="card p-7">
+
+          <div class="text-red-500 mb-5">
+            <i data-feather="clipboard" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="font-bold text-lg">
+            Personalized training plans
+          </h3>
+
+          <p class="text-gray-500 mt-3 text-sm leading-relaxed">
+            Personalized workout routines based on your current fitness level,
+            goals and available equipment.
+          </p>
+
+        </div>
+
+        <div class="card p-7">
+
+          <div class="text-red-500 mb-5">
+            <i data-feather="video" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="font-bold text-lg">
+            Video demonstrations
+          </h3>
+
+          <p class="text-gray-500 mt-3 text-sm leading-relaxed">
+            Video tutorials for every exercise to ensure perfect form and technique.
+          </p>
+
+        </div>
+
+        <div class="card p-7">
+
+          <div class="text-red-500 mb-5">
+            <i data-feather="bar-chart-2" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="font-bold text-lg">
+            Progress tracking
+          </h3>
+
+          <p class="text-gray-500 mt-3 text-sm leading-relaxed">
+            Track your workouts and explain progressive overload consistently
+            to ensure long-term progress.
+          </p>
+
+        </div>
+
+        <div class="card p-7">
+
+          <div class="text-red-500 mb-5">
+            <i data-feather="activity" class="w-7 h-7"></i>
+          </div>
+
+          <h3 class="font-bold text-lg">
+            Nutritional guidance
+          </h3>
+
+          <p class="text-gray-500 mt-3 text-sm leading-relaxed">
+            Providing guidance on nutrition, hydration and supplementation.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans" class="section-spacing bg-white">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="text-center mb-14">
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold">
+          Choose the right plan for You
+        </h2>
+
+        <p class="text-gray-500 mt-4">
+          Select the plan that matches your fitness goals and commitment level.
+        </p>
+
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-7 max-w-6xl mx-auto">
+
+        <!-- PLAN -->
+        <div class="plan-card bg-[#f7f7f7] border border-gray-200 p-7">
+
+          <h3 class="font-extrabold text-2xl">
+            8-WEEK PLAN
+          </h3>
+
+          <div class="mt-2 text-5xl font-extrabold">
+            40€
+          </div>
+
+          <ul class="mt-8 space-y-4 text-sm">
+
+            <li class="flex items-start gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Basic workout plan
+            </li>
+
+            <li class="flex items-start gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Daily one-on-one forever
+            </li>
+
+            <li class="flex items-start gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Reusable after 8-weeks
+            </li>
+
+          </ul>
+
+          <button class="mt-10 w-full bg-[#ebebeb] hover:bg-[#dedede] py-3 rounded-xl font-medium transition">
+            Check details
+          </button>
+
+        </div>
+
+        <!-- POPULAR -->
+        <div class="plan-card popular-card text-white p-7 relative shadow-2xl">
+
+          <div class="absolute top-0 right-0 bg-yellow-300 text-black text-xs font-bold px-3 py-1 rounded-bl-xl">
+            MOST POPULAR
+          </div>
+
+          <h3 class="font-extrabold text-2xl">
+            Coaching REGULAR
+          </h3>
+
+          <div class="mt-2">
+            <span class="text-5xl font-extrabold">200€</span>
+            <span class="text-white/80">/month</span>
+          </div>
+
+          <p class="mt-2 text-white/80 text-sm">
+            10% discount for a 3 month purchase
+          </p>
+
+          <ul class="mt-8 space-y-4 text-sm">
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 mt-0.5"></i>
+              Customized workout plan
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 mt-0.5"></i>
+              Consultations 3 times a week
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 mt-0.5"></i>
+              Video explanations and tutorials
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 mt-0.5"></i>
+              Weekly check-in
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 mt-0.5"></i>
+              Nutrition guidance
+            </li>
+
+          </ul>
+
+          <button class="mt-10 w-full bg-white text-red-600 hover:bg-gray-100 py-3 rounded-xl font-semibold transition">
+            Check details
+          </button>
+
+        </div>
+
+        <!-- PRO -->
+        <div class="plan-card bg-[#f7f7f7] border border-gray-200 p-7">
+
+          <h3 class="font-extrabold text-2xl">
+            Coaching PRO
+          </h3>
+
+          <div class="mt-2">
+            <span class="text-5xl font-extrabold">300€</span>
+            <span class="text-gray-500">/month</span>
+          </div>
+
+          <p class="mt-2 text-gray-500 text-sm">
+            10% discount for a 3 month purchase
+          </p>
+
+          <ul class="mt-8 space-y-4 text-sm">
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Customized workout plan
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Consultations 3 times / week
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Video explanations and tutorials
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Weekly check-in
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              1:1 life betting guidance
+            </li>
+
+            <li class="flex gap-3">
+              <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
+              Nutrition plan
+            </li>
+
+          </ul>
+
+          <button class="mt-10 w-full bg-[#ebebeb] hover:bg-[#dedede] py-3 rounded-xl font-medium transition">
+            Check details
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-spacing bg-[#f7f7f7]">
+
+    <div class="max-w-4xl mx-auto px-5">
+
+      <div class="text-center mb-14">
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold">
+          Frequently Asked Questions
+        </h2>
+
+        <p class="text-gray-500 mt-4">
+          Find answers to common questions about our workout plans.
+        </p>
+
+      </div>
+
+      <div class="bg-white rounded-3xl p-2 sm:p-6 border border-gray-200">
+
+        <div class="faq-item p-5">
+
+          <div class="flex items-center justify-between gap-5">
+
+            <h3 class="font-semibold">
+              How soon will I see results?
+            </h3>
+
+            <i data-feather="chevron-down" class="w-5 h-5 text-red-500"></i>
+
+          </div>
+
+          <p class="text-gray-500 text-sm leading-relaxed mt-4">
+            Most clients begin to see noticeable changes in their energy levels
+            and body composition within 2–4 weeks.
+          </p>
+
+        </div>
+
+        <div class="faq-item p-5">
+
+          <div class="flex items-center justify-between gap-5">
+
+            <h3 class="font-semibold">
+              Do I need gym equipment?
+            </h3>
+
+            <i data-feather="chevron-down" class="w-5 h-5 text-red-500"></i>
+
+          </div>
+
+          <p class="text-gray-500 text-sm leading-relaxed mt-4">
+            Our programs offer modifications for all equipment levels.
+            We provide bodyweight-only options as well as gym-based routines.
+          </p>
+
+        </div>
+
+        <div class="p-5">
+
+          <div class="flex items-center justify-between gap-5">
+
+            <h3 class="font-semibold">
+              Can I cancel my subscription?
+            </h3>
+
+            <i data-feather="chevron-down" class="w-5 h-5 text-red-500"></i>
+
+          </div>
+
+          <p class="text-gray-500 text-sm leading-relaxed mt-4">
+            Yes, you can cancel anytime.
+            We offer month-to-month subscriptions with no long-term contracts.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section-spacing bg-white">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <div>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold">
+            Have Questions? Get in Touch
+          </h2>
+
+          <p class="text-gray-500 mt-5 leading-relaxed">
+            I'm here to help you choose the right plan and answer any questions
+            you may have about your fitness journey.
+          </p>
+
+          <div class="mt-8 flex items-center gap-3 text-gray-700">
+
+            <i data-feather="mail" class="w-5 h-5 text-red-500"></i>
+
+            <span>bzcoaching@gmail.com</span>
+
+          </div>
+
+        </div>
+
+        <div class="card p-8">
+
+          <form class="space-y-5">
+
+            <input
+              type="text"
+              placeholder="Your name"
+              class="w-full border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+
+            <input
+              type="email"
+              placeholder="Email address"
+              class="w-full border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+
+            <textarea
+              rows="5"
+              placeholder="Message"
+              class="w-full border border-gray-200 rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-red-500"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="btn-primary w-full py-4 rounded-xl text-white font-semibold"
+            >
+              Send Message
             </button>
-        </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg text-gray-600">Find answers to common questions about our workout plans.</p>
-            </div>
-            
-            <div class="space-y-6">
-                <div data-aos="fade-up" class="border border-gray-200 rounded-lg p-6">
-                    <button class="flex justify-between items-center w-full text-left">
-                        <h3 class="text-lg font-semibold">How soon will I see results?</h3>
-                        <i data-feather="chevron-down" class="w-5 h-5 text-red-500"></i>
-                    </button>
-                    <div class="mt-4 text-gray-600">
-                        Most clients begin to see noticeable changes in their energy levels and body composition within 2-4 weeks. Significant transformations typically occur between 8-12 weeks with consistent effort.
-                    </div>
-                </div>
-                
-                <div data-aos="fade-up" data-aos-delay="100" class="border border-gray-200 rounded-lg p-6">
-                    <button class="flex justify-between items-center w-full text-left">
-                        <h3 class="text-lg font-semibold">Do I need gym equipment?</h3>
-                        <i data-feather="chevron-down" class="w-5 h-5 text-red-500"></i>
-                    </button>
-                    <div class="mt-4 text-gray-600">
-                        Our programs offer modifications for all equipment levels. We provide bodyweight-only options as well as gym-based routines. The Pro and Elite plans include equipment alternatives tailored to what you have available.
-                    </div>
-                </div>
-                
-                <div data-aos="fade-up" data-aos-delay="200" class="border border-gray-200 rounded-lg p-6">
-                    <button class="flex justify-between items-center w-full text-left">
-                        <h3 class="text-lg font-semibold">Can I cancel my subscription?</h3>
-                        <i data-feather="chevron-down" class="w-5 h-5 text-red-500"></i>
-                    </button>
-                    <div class="mt-4 text-gray-600">
-                        Yes, you can cancel anytime. We offer month-to-month subscriptions with no long-term contracts. If you cancel, you'll maintain access until the end of your current billing period.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+          </form>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Have Questions? Get in Touch</h2>
-                    <p class="text-lg text-gray-600 mb-8">Our team is here to help you choose the right plan and answer any questions you may have about your fitness journey.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i data-feather="mail" class="text-red-500 mr-4"></i>
-                            <span>support@fitrevolution.com</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="phone" class="text-red-500 mr-4"></i>
-                            <span>1-800-FIT-REV</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="clock" class="text-red-500 mr-4"></i>
-                            <span>Monday-Friday: 9am-6pm EST</span>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-left" class="bg-white p-8 rounded-xl shadow-md">
-                    <form>
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-md font-medium transition duration-300">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <i data-feather="activity" class="text-red-500 h-8 w-8"></i>
-                        <span class="ml-2 text-xl font-bold">FitRevolution</span>
-                    </div>
-                    <p class="text-gray-400">Helping you achieve your fitness goals through science-backed training programs since 2015.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="#plans" class="text-gray-400 hover:text-white transition duration-300">Plans</a></li>
-                        <li><a href="#features" class="text-gray-400 hover:text-white transition duration-300">Features</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition duration-300">Success Stories</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Refund Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i data-feather="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i data-feather="instagram" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i data-feather="twitter" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i data-feather="youtube" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 FitRevolution. All rights reserved.</p>
-            </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0f172a] text-white py-14">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+        <div>
+
+          <h3 class="font-extrabold text-lg">
+            BRUNO ZGELA COACHING
+          </h3>
+
+          <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+            Helping you achieve your fitness goals through calisthenics.
+          </p>
+
         </div>
-    </footer>
 
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        feather.replace();
-    </script>
+        <div>
+
+          <h4 class="font-semibold mb-4">
+            Quick links
+          </h4>
+
+          <div class="space-y-3 text-sm text-gray-400">
+
+            <a href="#" class="block hover:text-white">Home</a>
+            <a href="#plans" class="block hover:text-white">Plans</a>
+            <a href="#" class="block hover:text-white">About me</a>
+
+          </div>
+
+        </div>
+
+        <div>
+
+          <h4 class="font-semibold mb-4">
+            Follow me
+          </h4>
+
+          <div class="flex items-center gap-4">
+
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i data-feather="instagram" class="w-5 h-5"></i>
+            </a>
+
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i data-feather="youtube" class="w-5 h-5"></i>
+            </a>
+
+            <a href="#" class="text-gray-400 hover:text-white">
+              <i data-feather="mail" class="w-5 h-5"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+    feather.replace();
+  </script>
+
 </body>
 </html>
