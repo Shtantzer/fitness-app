@@ -56,7 +56,7 @@ body{
 }
 
 
-/* PRO PLAN FLOATING POPUP */
+/* REULAR PLAN FLOATING POPUP */
 
 .regular-popup{
     position:fixed;
@@ -617,27 +617,28 @@ Helping people build strength through calisthenics.
 </footer>
 
 <script>
-
 feather.replace();
 
 const regularPopup = document.getElementById("regularPopup");
 const closeRegularPopup = document.getElementById("closeRegularPopup");
 
-// Show popup after the user starts scrolling
-window.addEventListener("scroll", function(){
+let popupClosed = false;
 
-    if(window.scrollY > 300){
+function handleScroll() {
+    if (window.scrollY > 300 && !popupClosed) {
         regularPopup.classList.add("show");
     }
+}
 
-});
+window.addEventListener("scroll", handleScroll);
 
-// Close popup
-closeRegularoPopup.addEventListener("click", function(){
+closeRegularPopup.addEventListener("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    popupClosed = true;
     regularPopup.classList.remove("show");
 });
-
-
 </script>
 
 </body>
