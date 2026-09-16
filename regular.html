@@ -744,28 +744,31 @@ Helping people build strength through calisthenics.
 </footer>
 
 <script>
-
 feather.replace();
 
 const proPopup = document.getElementById("proPopup");
 const closeProPopup = document.getElementById("closeProPopup");
 
-// Show popup after the user starts scrolling
-window.addEventListener("scroll", function(){
+let popupClosed = false;
 
-    if(window.scrollY > 300){
+function handleScroll() {
+    if (window.scrollY > 300 && !popupClosed) {
         proPopup.classList.add("show");
     }
+}
 
-});
+window.addEventListener("scroll", handleScroll);
 
-// Close popup
-closeProPopup.addEventListener("click", function(){
+closeProPopup.addEventListener("click", function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    popupClosed = true;
     proPopup.classList.remove("show");
 });
-
-
 </script>
+
+
 
 </body>
 </html>
